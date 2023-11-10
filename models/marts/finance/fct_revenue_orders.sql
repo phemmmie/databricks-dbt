@@ -1,3 +1,7 @@
+# fct_revenue_orders.sql
+
+{% if is_node_defined('int_orders_items_products_joined') %}
+
 {{
   config(
     materialized = 'incremental',
@@ -26,4 +30,10 @@ join {{ ref('stg_furniture_mart_orders') }} as ord
   on rev.OrderId = ord.OrderId
 {% if is_incremental() %}
 where ord.UpdatedAt > (select max(UpdatedAt) from {{ this }})
+{% endif %}
+
+{% else %}
+
+# The int_orders_items_products_joined node does not exist, so skip this model
+
 {% endif %}

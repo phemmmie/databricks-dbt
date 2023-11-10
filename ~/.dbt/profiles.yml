@@ -1,0 +1,11 @@
+dataopsbronze:
+  outputs:
+    dev:
+      catalog: development
+      host: dbc-b471b9f6-78c7.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/c74126810ae91d5d
+      schema: dataops
+      threads: 8
+      token: dapi16f7df4969156b5bb6aac115ded3f1aa
+      type: databricks
+  target: dev
